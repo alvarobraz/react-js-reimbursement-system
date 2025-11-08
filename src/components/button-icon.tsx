@@ -8,11 +8,9 @@ export const buttonIconVariants = tv({
   variants: {
     variant: {
       primary: "bg-green-100 hover:bg-green-200",
-      secondary: "bg-background-secondary hover:bg-background-tertiary",
-      ghost: "bg-transparent hover:bg-border-primary/20",
     },
     size: {
-      md: "w-10 h-10 p-2 rounded",
+      md: "w-12 h-12 P-2 rounded-lg",
     },
     disabled: {
       true: "opacity-50 pointer-events-none",
