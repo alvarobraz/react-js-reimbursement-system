@@ -10,6 +10,7 @@ import MagnifyingGlass from "./assets/icons/magnifying-glass.svg?react";
 import CaretLeft from "./assets/icons/caret-left.svg?react";
 import CaretRight from "./assets/icons/caret-right.svg?react";
 import ButtonIcon from "./components/button-icon";
+import Button from "./components/button";
 
 export default function App() {
   return (
@@ -41,7 +42,11 @@ export default function App() {
       <div className="flex gap-2 mb-2">
         <ButtonIcon icon={MagnifyingGlass} disabled />
         <ButtonIcon icon={MagnifyingGlass} variant="primary" />
-        <ButtonIcon icon={MagnifyingGlass} variant="secondary" />
+      </div>
+
+      <div className="flex flex-col gap-2 mb-2">
+        <Button disabled>Nova solicitação</Button>
+        <Button>Nova solicitação</Button>
       </div>
     </>
   );
