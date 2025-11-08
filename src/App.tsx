@@ -9,6 +9,7 @@ import CloudArrowUp from "./assets/icons/cloud-arrow-up.svg?react";
 import MagnifyingGlass from "./assets/icons/magnifying-glass.svg?react";
 import CaretLeft from "./assets/icons/caret-left.svg?react";
 import CaretRight from "./assets/icons/caret-right.svg?react";
+import ButtonIcon from "./components/button-icon";
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
         <Text>Levar o dog pra passear</Text>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 mb-2">
         <Icon svg={ForkKnife} />
         <Icon svg={PoliceCar} />
         <Icon svg={Bed} />
@@ -35,6 +36,12 @@ export default function App() {
         <Icon svg={MagnifyingGlass} />
         <Icon svg={CaretLeft} />
         <Icon svg={CaretRight} />
+      </div>
+
+      <div className="flex gap-2 mb-2">
+        <ButtonIcon icon={MagnifyingGlass} disabled />
+        <ButtonIcon icon={MagnifyingGlass} variant="primary" />
+        <ButtonIcon icon={MagnifyingGlass} variant="secondary" />
       </div>
     </>
   );
