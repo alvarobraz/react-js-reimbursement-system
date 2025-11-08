@@ -11,6 +11,7 @@ import CaretLeft from "./assets/icons/caret-left.svg?react";
 import CaretRight from "./assets/icons/caret-right.svg?react";
 import ButtonIcon from "./components/button-icon";
 import Button from "./components/button";
+import InputText from "./components/input-text";
 
 export default function App() {
   return (
@@ -47,6 +48,11 @@ export default function App() {
       <div className="flex flex-col gap-2 mb-2">
         <Button disabled>Nova solicitação</Button>
         <Button>Nova solicitação</Button>
+      </div>
+
+      <div className="flex flex-col gap-2 mb-2">
+        <InputText label="Título" />
+        <InputText label="Outro título" />
       </div>
     </>
   );

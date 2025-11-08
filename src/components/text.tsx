@@ -8,7 +8,8 @@ export const textVariants = tv({
     variant: {
       "heading-lg": "text-gray-100 text-xl leading-5 font-bold",
       "body-md-regular": "text-gray-200 text-lg leading-5 font-regular",
-      "text-label": "text-gray-200 text-[0.625rem] leading-5 font-regular",
+      "text-label":
+        "text-gray-200 text-[0.625rem] leading-5 font-regular uppercase",
       "title-bold": "text-gray-100 text-sm leading-[1.125rem] font-bold",
       "sub-title": "text-gray-200 text-xs leading-4 font-regular",
     },
