@@ -9,13 +9,57 @@ import CloudArrowUp from "./assets/icons/cloud-arrow-up.svg?react";
 import MagnifyingGlass from "./assets/icons/magnifying-glass.svg?react";
 import CaretLeft from "./assets/icons/caret-left.svg?react";
 import CaretRight from "./assets/icons/caret-right.svg?react";
+import CaretUp from "./assets/icons/caret-up.svg?react";
+import CaretDown from "./assets/icons/caret-down.svg?react";
 import ButtonIcon from "./components/button-icon";
 import Button from "./components/button";
 import InputText from "./components/input-text";
+import { useId } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from "./components/select";
+import { SelectTrigger } from "@radix-ui/react-select";
 
 export default function App() {
+  const selectId = useId();
+
   return (
     <>
+      <div className="mb-10">
+        <label
+          htmlFor={selectId}
+          className="block text-label text-gray-200 font-bold uppercase group-focus-within:text-green-100 transition-colors mb-2"
+        >
+          Categoria
+        </label>
+
+        <Select>
+          <SelectTrigger
+            id={selectId}
+            className="w-88 h-12 border border-solid border-green-100 rounded-lg pl-3 pr-3 flex items-center justify-between pt-1 text-gray-200"
+          >
+            <SelectValue placeholder="Selecione" />
+
+            <Icon
+              svg={CaretDown}
+              className="fill-gray-300 size-8 mr-[-8px] pr-3"
+            />
+          </SelectTrigger>
+
+          <SelectContent
+            className="bg-white w-[var(--radix-select-trigger-width)] ![margin-left:-10px] border border-solid border-gray-300 rounded-md"
+            align="start"
+          >
+            <SelectItem value="apple">Maçã</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="orange">Laranja</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="flex flex-col gap-2 mb-2">
         <Text variant="heading-lg" className="text-green-200">
           Olá mundo!
