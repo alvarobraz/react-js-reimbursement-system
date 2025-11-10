@@ -24,7 +24,7 @@ export default function MainHeader({ className, ...props }: MainHeaderProps) {
         <Logo className="h-5" />
       </Link> */}
 
-      <Logo className="h-5" />
+      <Logo className="h-6" />
 
       {/* {pathname === "/" && (
         <>
@@ -36,7 +36,9 @@ export default function MainHeader({ className, ...props }: MainHeaderProps) {
       <div className="flex items-center gap-3">
         {/* <Link to="/">Solicitações de reenbolso</Link> */}
         <Text>Solicitações de reenbolso</Text>
-        <Button variant="primary">Nova Solicitação</Button>
+        <Button variant="primary" size="sm">
+          Nova Solicitação
+        </Button>
       </div>
     </Container>
   );

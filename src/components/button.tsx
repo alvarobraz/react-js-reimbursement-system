@@ -9,7 +9,8 @@ export const buttonVariants = tv({
       primary: "bg-green-100  hover:bg-green-200",
     },
     size: {
-      sm: "h-12 w-88 py-1 px-3",
+      sm: "h-12 w-38 py-1 px-3",
+      md: "h-12 w-88 py-1 px-3",
     },
     disabled: {
       true: "opacity-50 pointer-events-none",
@@ -20,7 +21,7 @@ export const buttonVariants = tv({
   },
   defaultVariants: {
     variant: "primary",
-    size: "sm",
+    size: "md",
     disabled: false,
     handling: false,
   },
