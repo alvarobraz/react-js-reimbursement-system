@@ -14,7 +14,7 @@ import CaretDown from "./assets/icons/caret-down.svg?react";
 import ButtonIcon from "./components/button-icon";
 import Button from "./components/button";
 import InputText from "./components/input-text";
-import { useId } from "react";
+import { useId, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -25,32 +25,47 @@ import { SelectTrigger } from "@radix-ui/react-select";
 
 export default function App() {
   const selectId = useId();
+  const [open, setOpen] = useState(false);
 
   return (
     <>
       <div className="mb-10">
         <label
           htmlFor={selectId}
-          className="block text-label text-gray-200 font-bold uppercase group-focus-within:text-green-100 transition-colors mb-2"
+          className={`
+          block text-label font-bold uppercase mb-2 transition-colors
+          ${open ? "text-green-100" : "text-gray-200"}
+        `}
         >
           Categoria
         </label>
 
-        <Select>
+        <Select onOpenChange={(isOpen) => setOpen(isOpen)}>
           <SelectTrigger
             id={selectId}
-            className="w-88 h-12 border border-solid border-green-100 rounded-lg pl-3 pr-3 flex items-center justify-between pt-1 text-gray-200"
+            className={`
+            w-88 h-12 border border-solid rounded-lg pl-3 pr-3 flex items-center justify-between pt-1 text-gray-200
+            transition-colors
+            ${open ? "border-green-100" : "border-gray-300"}
+            focus:outline-none
+          `}
           >
             <SelectValue placeholder="Selecione" />
-
-            <Icon
-              svg={CaretDown}
-              className="fill-gray-300 size-8 mr-[-8px] pr-3"
-            />
+            {open ? (
+              <Icon
+                svg={CaretUp}
+                className="fill-green-100 size-8 mr-[-8px] pr-3"
+              />
+            ) : (
+              <Icon
+                svg={CaretDown}
+                className="fill-gray-300 size-8 mr-[-8px] pr-3"
+              />
+            )}
           </SelectTrigger>
 
           <SelectContent
-            className="bg-white w-[var(--radix-select-trigger-width)] ![margin-left:-10px] border border-solid border-gray-300 rounded-md"
+            className="bg-white w-[var(--radix-select-trigger-width)] ![margin-left:-10px] border border-solid border-gray-300 rounded-md text-gray-100"
             align="start"
           >
             <SelectItem value="apple">Maçã</SelectItem>

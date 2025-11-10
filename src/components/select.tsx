@@ -52,7 +52,7 @@ export function SelectItem({
         rounded-sm px-3 py-2 text-sm outline-none
         transition-colors
         data-[highlighted]:bg-background-secondary
-        data-[state=checked]:font-medium
+        data-[state=checked]:font-bold
         data-[disabled]:pointer-events-none
         data-[disabled]:opacity-50
       `,
@@ -62,7 +62,7 @@ export function SelectItem({
     >
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator className="absolute right-3">
-        <CheckIcon className="h-4 w-4" />
+        <CheckIcon className="h-[20px] w-[20px] text-green-100" />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   );
@@ -80,7 +80,7 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
-      <ChevronUpIcon className="h-4 w-4" />
+      <ChevronUpIcon className="h-[20px] w-[20px]" />
     </SelectPrimitive.ScrollUpButton>
   );
 }
@@ -97,7 +97,7 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <ChevronDownIcon className="h-4 w-4" />
+      <ChevronDownIcon className="h-[20px] w-[20px]" />
     </SelectPrimitive.ScrollDownButton>
   );
 }
@@ -137,7 +137,7 @@ export function SelectTriggers({
             icon={ChevronDownIcon}
             variant="primary"
             size="md"
-            className="h-4 w-4"
+            className="h-[20px] w-[20px]"
           />
         </SelectPrimitive.Icon>
       </SelectPrimitive.Trigger>
