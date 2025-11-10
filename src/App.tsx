@@ -22,6 +22,8 @@ import {
   SelectValue,
 } from "./components/select";
 import { SelectTrigger } from "@radix-ui/react-select";
+import Container from "./components/container";
+import MainHeader from "./components/main-header";
 
 export default function App() {
   const selectId = useId();
@@ -113,6 +115,8 @@ export default function App() {
         <InputText label="Título" />
         <InputText label="Outro título" />
       </div>
+
+      <MainHeader className="mt-9" />
     </>
   );
 }
