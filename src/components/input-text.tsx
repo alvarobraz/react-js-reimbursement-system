@@ -15,6 +15,7 @@ export const inputTextWrapperVariants = tv({
 
   variants: {
     size: {
+      xs: "w-[17.375rem] h-12 p-4",
       md: "w-full h-12 p-4",
     },
 

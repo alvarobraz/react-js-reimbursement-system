@@ -197,7 +197,6 @@ export default function PageComponents() {
         <ButtonIcon size="sm" icon={CaretLeft} disabled />
         <ButtonIcon size="sm" icon={CaretRight} disabled />
         <ButtonIcon size="sm" icon={CaretLeft} variant="primary" />
-
         <ButtonIcon size="sm" icon={CaretRight} variant="primary" />
       </div>
     </Container>

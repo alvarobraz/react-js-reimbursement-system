@@ -13,6 +13,8 @@ export const textVariants = tv({
       "title-bold": "text-gray-100 text-sm leading-[1.125rem] font-bold",
       "sub-title": "text-gray-200 text-xs leading-4 font-regular",
       "text-sm": "text-gray-200 text-sm leading-4 font-regular",
+      "text-semi-bold":
+        "text-green-100 text-sm leading-[1.125rem] font-semi-bold",
     },
   },
   defaultVariants: {

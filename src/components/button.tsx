@@ -10,7 +10,7 @@ export const buttonVariants = tv({
     },
     size: {
       sm: "h-12 w-38 py-1 px-3",
-      md: "h-12 w-88 py-1 px-3",
+      md: "h-12 w-full py-1 px-3",
     },
     disabled: {
       true: "opacity-50 pointer-events-none",
