@@ -7,7 +7,13 @@ export default function MainContent({
   ...props
 }: MainContentProps) {
   return (
-    <main className={cx("mt-20 pb-20 bg-white", className)} {...props}>
+    <main
+      className={cx(
+        "mx-auto w-[67.625rem] mt-10 py-10 bg-white gap-6 rounded-xl",
+        className
+      )}
+      {...props}
+    >
       {children}
     </main>
   );

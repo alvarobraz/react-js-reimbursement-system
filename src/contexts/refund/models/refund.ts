@@ -7,6 +7,7 @@ export interface Receipt {
 }
 
 export interface Refund {
+  id?: string;
   title: string;
   category: string;
   value: number;

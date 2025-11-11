@@ -23,7 +23,7 @@ export default function RefundSearch() {
   return (
     <div className="flex justify-between items-center gap-3">
       <InputText
-        placeholder="Buscar fotos"
+        placeholder="Pesquise pelo nome"
         className="flex-1"
         value={inputValue}
         onChange={handleInputChange}

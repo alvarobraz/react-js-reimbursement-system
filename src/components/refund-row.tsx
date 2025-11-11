@@ -26,7 +26,7 @@ export default function RefundRow({ refund, loading }: RefundRowProps) {
         {!loading ? (
           <>
             <div className="flex items-start justify-start gap-3">
-              <div className="w-[34px] h-[34px] rounded-3xl bg-gray-300 p-1.5">
+              <div className="w-[34px] h-[34px] rounded-3xl bg-gray-400 p-1.5">
                 <Icon svg={icon} className="fill-green-100 h-5 w-5" />
               </div>
               <div className="flex flex-col justify-center gap-1">

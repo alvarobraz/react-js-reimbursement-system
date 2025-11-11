@@ -29,6 +29,7 @@ import InputSingleFile from "../components/input-single-file";
 import { useForm } from "react-hook-form";
 import RefundSearch from "../components/refund-search";
 import RefundRow from "../components/refund-row";
+import Container from "../components/container";
 
 export default function PageComponents() {
   const selectId = useId();
@@ -42,7 +43,7 @@ export default function PageComponents() {
   });
 
   return (
-    <>
+    <Container className="flex flex-col gap-6">
       <div className="mb-10">
         <label
           htmlFor={selectId}
@@ -192,6 +193,13 @@ export default function PageComponents() {
           loading={true}
         />
       </div>
-    </>
+      <div className="flex gap-2 mb-2">
+        <ButtonIcon size="sm" icon={CaretLeft} disabled />
+        <ButtonIcon size="sm" icon={CaretRight} disabled />
+        <ButtonIcon size="sm" icon={CaretLeft} variant="primary" />
+
+        <ButtonIcon size="sm" icon={CaretRight} variant="primary" />
+      </div>
+    </Container>
   );
 }

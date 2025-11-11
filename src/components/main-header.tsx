@@ -15,11 +15,7 @@ export default function MainHeader({ className, ...props }: MainHeaderProps) {
   const { pathname } = useLocation();
 
   return (
-    <Container
-      as="header"
-      className={cx("flex justify-between items-center gap-10", className)}
-      {...props}
-    >
+    <div className="flex justify-between items-center w-[74.0625rem] gap-10 mx-auto px-0 mt-10">
       <Link to="/">
         <Logo className="h-7" />
       </Link>
@@ -35,6 +31,6 @@ export default function MainHeader({ className, ...props }: MainHeaderProps) {
           Nova Solicitação
         </Button>
       </div>
-    </Container>
+    </div>
   );
 }
