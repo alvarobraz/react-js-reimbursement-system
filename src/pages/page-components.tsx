@@ -146,7 +146,51 @@ export default function PageComponents() {
         <RefundSearch />
       </div>
       <div className="flex flex-col gap-2 mt-6 mb-2">
-        <RefundRow />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "food",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "hosting",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "transport",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "services",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "others",
+            value: 5500,
+          }}
+        />
+      </div>
+      <div className="flex flex-col gap-2 mt-6 mb-2">
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "food",
+            value: 5500,
+          }}
+          loading={true}
+        />
       </div>
     </>
   );
