@@ -28,6 +28,7 @@ import InputSingleFile from "../components/input-single-file";
 // 🆕 Importar useForm
 import { useForm } from "react-hook-form";
 import RefundSearch from "../components/refund-search";
+import RefundRow from "../components/refund-row";
 
 export default function PageComponents() {
   const selectId = useId();
@@ -143,6 +144,9 @@ export default function PageComponents() {
 
       <div className="flex flex-col gap-2 mt-6 mb-2">
         <RefundSearch />
+      </div>
+      <div className="flex flex-col gap-2 mt-6 mb-2">
+        <RefundRow />
       </div>
     </>
   );
