@@ -22,12 +22,22 @@ import {
   SelectValue,
 } from "./components/select";
 import { SelectTrigger } from "@radix-ui/react-select";
-import Container from "./components/container";
 import MainHeader from "./components/main-header";
+import InputSingleFile from "./components/input-single-file";
+
+// 🆕 Importar useForm
+import { useForm } from "react-hook-form";
 
 export default function App() {
   const selectId = useId();
   const [open, setOpen] = useState(false);
+
+  // 🆕 Criar o form
+  const form = useForm({
+    defaultValues: {
+      file: undefined, // o campo que usaremos no InputSingleFile
+    },
+  });
 
   return (
     <>
@@ -77,6 +87,7 @@ export default function App() {
         </Select>
       </div>
 
+      {/* Outros exemplos */}
       <div className="flex flex-col gap-2 mb-2">
         <Text variant="heading-lg" className="text-green-200">
           Olá mundo!
@@ -117,6 +128,17 @@ export default function App() {
       </div>
 
       <MainHeader className="mt-9" />
+
+      <div className="flex flex-col gap-2 mt-6 mb-2">
+        <InputSingleFile
+          form={form}
+          label="Comprovante"
+          allowedExtensions={["pdf"]}
+          maxFileSizeInMB={50}
+          error={form.formState.errors.file?.message}
+          {...form.register("file")}
+        />
+      </div>
     </>
   );
 }

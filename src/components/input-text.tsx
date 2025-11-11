@@ -15,7 +15,7 @@ export const inputTextWrapperVariants = tv({
 
   variants: {
     size: {
-      md: "w-88 h-12 p-4",
+      md: "w-full h-12 p-4",
     },
 
     disabled: {
