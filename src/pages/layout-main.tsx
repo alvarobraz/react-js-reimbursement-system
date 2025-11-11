@@ -1,11 +1,11 @@
 import { Outlet } from "react-router";
 import Text from "../components/text";
+import MainHeader from "../components/main-header";
 
 export default function LayoutMain() {
   return (
     <>
-      <Text variant="title-bold">Layout main!</Text>
-      <hr />
+      <MainHeader className="mt-9" />
       <Outlet />
     </>
   );

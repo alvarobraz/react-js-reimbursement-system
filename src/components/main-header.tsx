@@ -12,7 +12,7 @@ import Text from "./text";
 interface MainHeaderProps extends React.ComponentProps<typeof Container> {}
 
 export default function MainHeader({ className, ...props }: MainHeaderProps) {
-  // const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <Container
@@ -20,22 +20,17 @@ export default function MainHeader({ className, ...props }: MainHeaderProps) {
       className={cx("flex justify-between items-center gap-10", className)}
       {...props}
     >
-      {/* <Link to="/">
-        <Logo className="h-5" />
-      </Link> */}
+      <Link to="/">
+        <Logo className="h-7" />
+      </Link>
 
-      <Logo className="h-6" />
-
-      {/* {pathname === "/" && (
-        <>
-          <PhotosSearch />
-          <Divider orientation="vertical" className="h-10" />
-        </>
-      )} */}
-
-      <div className="flex items-center gap-3">
-        {/* <Link to="/">Solicitações de reenbolso</Link> */}
-        <Text>Solicitações de reenbolso</Text>
+      <div className="flex items-center gap-8">
+        <Link
+          to="/"
+          className={pathname === "/" ? "text-green-100 gap-4" : "gap-4"}
+        >
+          Solicitações de reenbolso
+        </Link>
         <Button variant="primary" size="sm">
           Nova Solicitação
         </Button>
