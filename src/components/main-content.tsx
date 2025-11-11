@@ -9,7 +9,7 @@ export default function MainContent({
   return (
     <main
       className={cx(
-        "mx-auto w-[67.625rem] mt-10 py-10 bg-white gap-6 rounded-xl",
+        "mx-auto w-[67.625rem] m-10 py-10 bg-white gap-6 rounded-xl",
         className
       )}
       {...props}

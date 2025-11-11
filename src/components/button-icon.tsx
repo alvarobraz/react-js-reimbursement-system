@@ -37,6 +37,7 @@ export const buttonIconIconVariants = tv({
     },
     size: {
       md: "w-6 h-6",
+      sm: "w-5 h-5",
     },
   },
   defaultVariants: {
