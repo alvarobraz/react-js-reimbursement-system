@@ -9,6 +9,7 @@ export const buttonVariants = tv({
       primary: "bg-green-100  hover:bg-green-200",
     },
     size: {
+      xs: "h-10 w-22 py-1 px-3",
       sm: "h-12 w-38 py-1 px-3",
       md: "h-12 w-full py-1 px-3",
     },
@@ -33,6 +34,7 @@ export const buttonTextVariants = tv({
       primary: "font-bold text-white",
     },
     size: {
+      xs: "text-xs",
       sm: "text-sm",
     },
   },

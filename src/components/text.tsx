@@ -15,6 +15,7 @@ export const textVariants = tv({
       "text-sm": "text-gray-200 text-sm leading-4 font-regular",
       "text-semi-bold":
         "text-green-100 text-sm leading-[1.125rem] font-semi-bold",
+      "text-success": "text-green-100 text-xl leading-[1.125rem] font-bold",
     },
   },
   defaultVariants: {

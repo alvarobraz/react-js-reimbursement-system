@@ -35,10 +35,9 @@ export default function PageComponents() {
   const selectId = useId();
   const [open, setOpen] = useState(false);
 
-  // 🆕 Criar o form
   const form = useForm({
     defaultValues: {
-      file: undefined, // o campo que usaremos no InputSingleFile
+      file: undefined,
     },
   });
 
