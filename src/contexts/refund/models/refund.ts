@@ -1,10 +1,4 @@
-export interface Receipt {
-  originalFilename: string;
-  filename: string;
-  path: string;
-  extname: string;
-  refundId: string;
-}
+import { Receipt } from "../../receipts/models/receipt";
 
 export interface Refund {
   id?: string;
@@ -15,7 +9,7 @@ export interface Refund {
 }
 
 export interface RefundDetail {
-  refund: { data: Refund };
+  refund: Refund;
 }
 
 export interface RefundsResponse {

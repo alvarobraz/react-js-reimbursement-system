@@ -10,26 +10,31 @@ export function getRefundCategoryData(category: string) {
       return {
         icon: ForkKnife,
         label: "Alimentação",
+        category,
       };
     case "hosting":
       return {
         icon: Bed,
         label: "Hospedagem",
+        category,
       };
     case "transport":
       return {
         icon: PoliceCar,
         label: "Transporte",
+        category,
       };
     case "services":
       return {
         icon: Wrench,
         label: "Serviços",
+        category,
       };
     default:
       return {
         icon: Receipt,
         label: "Outros",
+        category,
       };
   }
 }
@@ -43,3 +48,11 @@ export function formatRefundValue(value: number | string): string {
 
   return (numericValue / 100).toFixed(2).replace(".", ",");
 }
+
+export const categories = [
+  { value: "food", label: "Alimentação" },
+  { value: "hosting", label: "Hospedagem" },
+  { value: "transport", label: "Transporte" },
+  { value: "services", label: "Serviços" },
+  { value: "other", label: "Outros" },
+];
