@@ -14,6 +14,7 @@ export default function RefundList({ refunds, loading }: refundListProps) {
         <div className="flex flex-col gap-6">
           {refunds.map((refund) => (
             <RefundRow
+              key={refund.id}
               refund={{
                 title: refund.title,
                 category: refund.category,
