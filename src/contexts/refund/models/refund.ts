@@ -14,6 +14,10 @@ export interface Refund {
   receipt?: Receipt;
 }
 
+export interface RefundDetail {
+  refund: { data: Refund };
+}
+
 export interface RefundsResponse {
   refunds: {
     meta: {

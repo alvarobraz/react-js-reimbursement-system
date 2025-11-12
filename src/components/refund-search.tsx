@@ -3,14 +3,17 @@ import SearchIcon from "../assets/icons/magnifying-glass.svg?react";
 import InputText from "./input-text";
 import { debounce } from "../helpers/utils";
 import Icon from "./icon";
+import useRefunds from "../contexts/refund/hooks/use-refunds";
 
 export default function RefundSearch() {
   const [inputValue, setInputValue] = React.useState("");
 
+  const { filters } = useRefunds();
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSetValue = React.useCallback(
-    debounce((value: string) => console.log("valor com debounce", value), 200),
-    []
+    debounce((value: string) => filters.setQ(value), 1000),
+    [filters.setQ]
   );
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {

@@ -10,9 +10,13 @@ import InputSingleFile from "../components/input-single-file";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import DeleteConfirmDialog from "../contexts/componets/delete-confirm-dialog";
+import useRefund from "../contexts/refund/hooks/use-refund";
 
 export default function PageRefund() {
   const { id } = useParams();
+  const { isLoadingRefund, refund } = useRefund(id);
+
+  console.log("refund =>" + JSON.stringify(refund));
 
   const form = useForm({
     defaultValues: {
@@ -50,15 +54,23 @@ export default function PageRefund() {
           <Text variant="body-md-regular">
             Dados da despesa para solicitar reembolso.
           </Text>
-          <InputText label="Nome da solicitação" />
+          <InputText label="Nome da solicitação" value={refund?.title || ""} />
           <div className="flex justify-between align-middle w-[432px]">
-            <InputText label="Categoria" />
-            <InputText label="Valor" className="w-32" />
+            <InputText label="Categoria" value={refund?.category || ""} />
+            <InputText
+              label="Valor"
+              className="w-32"
+              value={
+                refund ? (refund.value / 100).toFixed(2).replace(".", ",") : ""
+              }
+            />
           </div>
           {id !== undefined ? (
             <div className="flex justify-center align-middle items-center gap-2 mt-1">
               <a
-                href="https://www.linkedin.com/in/alvarobraz/?skipRedirect=true"
+                href={`${import.meta.env.VITE_API_URL}/${
+                  refund?.receipt?.path
+                }`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-green-100 hover:text-green-200 transition-colors no-underline"

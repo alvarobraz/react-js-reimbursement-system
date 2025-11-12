@@ -3130,9 +3130,9 @@ node-releases@^2.0.26:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.27.tgz"
   integrity sha512-nmh3lCkYZ3grZvqcCH+fjmQ7X+H0OeZgP40OierEaAptX4XofMh5kwNbWh7lBduUzCcV/8kZ+NDLCwm2iorIlA==
 
-nuqs@^2.7.2:
+nuqs@^2.7.3:
   version "2.7.3"
-  resolved "https://registry.npmjs.org/nuqs/-/nuqs-2.7.3.tgz"
+  resolved "https://registry.yarnpkg.com/nuqs/-/nuqs-2.7.3.tgz#e0c7a3b07d5b1bfc3e44b28905e67b11c6dc50f5"
   integrity sha512-lQzSYLsXUYftc0cerww64yevjMeYOX8thkcqI25XtyyTEJFTk3LE+i2hcY2h0Jwvp1+owCb+KJ0GMaKQwfmq3g==
   dependencies:
     "@standard-schema/spec" "1.0.0"

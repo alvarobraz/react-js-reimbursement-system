@@ -1,6 +1,7 @@
 import type { Refund } from "../contexts/refund/models/refund";
 import RefundRow from "./refund-row";
 import Text from "../components/text";
+import { Link } from "react-router";
 
 interface refundListProps {
   refunds: Refund[];
@@ -13,14 +14,16 @@ export default function RefundList({ refunds, loading }: refundListProps) {
       {!loading && refunds.length > 0 && (
         <div className="flex flex-col gap-6">
           {refunds.map((refund) => (
-            <RefundRow
-              key={refund.id}
-              refund={{
-                title: refund.title,
-                category: refund.category,
-                value: refund.value,
-              }}
-            />
+            <Link to={`refund-request/${refund.id}`}>
+              <RefundRow
+                key={refund.id}
+                refund={{
+                  title: refund.title,
+                  category: refund.category,
+                  value: refund.value,
+                }}
+              />
+            </Link>
           ))}
         </div>
       )}
