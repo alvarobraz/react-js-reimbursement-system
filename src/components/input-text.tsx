@@ -1,6 +1,7 @@
 import { tv, type VariantProps } from "tailwind-variants";
 import Text from "./text";
 import type { ComponentProps, ReactNode } from "react";
+import Skeleton from "./skeleton";
 
 export const inputTextContainerVariants = tv({
   base: "flex flex-col gap-1 group",
@@ -42,6 +43,7 @@ interface InputTextProps
     Omit<ComponentProps<"input">, "size" | "disabled"> {
   label?: ReactNode;
   error?: ReactNode;
+  loading?: boolean;
 }
 
 export default function InputText({
@@ -50,6 +52,7 @@ export default function InputText({
   className,
   label,
   error,
+  loading,
   ...props
 }: InputTextProps) {
   return (
@@ -63,13 +66,17 @@ export default function InputText({
         </Text>
       )}
 
-      <div className={inputTextWrapperVariants({ size, disabled })}>
-        <input
-          className={inputTextVariants()}
-          disabled={disabled as boolean}
-          {...props}
-        />
-      </div>
+      {!loading ? (
+        <div className={inputTextWrapperVariants({ size, disabled })}>
+          <input
+            className={inputTextVariants()}
+            disabled={disabled as boolean}
+            {...props}
+          />
+        </div>
+      ) : (
+        <Skeleton className="bg-gray-300 w-full h-12 p-4" />
+      )}
 
       {error && (
         <Text variant="sub-title" className="text-accent-red">

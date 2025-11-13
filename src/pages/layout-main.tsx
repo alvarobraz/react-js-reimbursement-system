@@ -5,9 +5,6 @@ import { Link, useLocation } from "react-router";
 
 export default function LayoutMain() {
   const { pathname } = useLocation();
-  if (pathname.includes("refund-details")) {
-    console.log("✅ O path contém 'refund-details'");
-  }
 
   return (
     <>

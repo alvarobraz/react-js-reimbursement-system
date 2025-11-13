@@ -21,7 +21,6 @@ export function SelectContent({
       <SelectPrimitive.Content
         className={cn(
           `
-          
         `,
           className
         )}
@@ -99,48 +98,5 @@ function SelectScrollDownButton({
     >
       <ChevronDownIcon className="h-[20px] w-[20px]" />
     </SelectPrimitive.ScrollDownButton>
-  );
-}
-
-export function SelectTriggers({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Trigger>) {
-  return (
-    <>
-      <Text
-        variant="text-label"
-        className="text-accent-title group-focus-within:text-green-100 transition-colors"
-      >
-        Categoria
-      </Text>
-      <SelectPrimitive.Trigger
-        className={cn(
-          `
-        inline-flex h-10 w-full items-center justify-between
-        rounded-md border border-border px-3 py-2
-        text-sm transition-colors
-        bg-background-primary
-        placeholder:text-text-secondary
-        focus:outline-none focus:ring-2 focus:ring-primary
-        disabled:cursor-not-allowed disabled:opacity-50
-        data-[placeholder]:text-text-secondary
-      `,
-          className
-        )}
-        {...props}
-      >
-        {children}
-        <SelectPrimitive.Icon asChild>
-          <ButtonIcon
-            icon={ChevronDownIcon}
-            variant="primary"
-            size="md"
-            className="h-[20px] w-[20px]"
-          />
-        </SelectPrimitive.Icon>
-      </SelectPrimitive.Trigger>
-    </>
   );
 }
