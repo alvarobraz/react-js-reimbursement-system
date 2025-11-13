@@ -148,7 +148,7 @@ export default function PageRefund() {
               error={form.formState.errors.title?.message}
               loading={isLoadingRefund}
             />
-            <div className="flex justify-between align-middle w-[432px] mt-2">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between mt-2">
               <Controller
                 control={form.control}
                 name="category"
@@ -156,11 +156,7 @@ export default function PageRefund() {
                   <div className="flex flex-col gap-1">
                     <Text
                       variant="text-label"
-                      className={`text-accent-title transition-colors ${
-                        form.formState.errors.category
-                          ? "text-red-500"
-                          : "group-focus-within:text-green-100"
-                      }`}
+                      className="text-accent-title transition-colors group-focus-within:text-green-100"
                     >
                       Categoria
                     </Text>
@@ -174,7 +170,8 @@ export default function PageRefund() {
                         <SelectTrigger
                           id={selectId}
                           className={`
-                            w-70 h-12 border border-solid rounded-lg pl-4 pr-3 flex items-center justify-between pt-1 text-gray-100
+                            w-81 sm:w-70 h-12 border border-solid rounded-lg 
+                            pl-4 pr-3 flex items-center justify-between pt-1 text-gray-100
                             transition-colors
                             ${
                               openSelect
@@ -202,7 +199,7 @@ export default function PageRefund() {
                           )}
                         </SelectTrigger>
                       ) : (
-                        <Skeleton className="bg-gray-300 w-70 h-12 rounded-lg pl-4 pr-3 flex items-center justify-between pt-1" />
+                        <Skeleton className="bg-gray-300 w-50 sm:w-70 h-12 rounded-lg pl-4 pr-3 flex items-center justify-between pt-1" />
                       )}
 
                       <SelectContent
@@ -244,7 +241,7 @@ export default function PageRefund() {
                       const numericValue = Number(raw);
                       field.onChange(numericValue);
                     }}
-                    className="w-34"
+                    className="w-81 sm:w-34 mt-8 sm:mt-0"
                     error={form.formState.errors.value?.message}
                     loading={isLoadingRefund}
                   />

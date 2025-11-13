@@ -13,9 +13,6 @@ export default function PageHome() {
   const { isLoadingRefunds, refunds, meta } = useRefunds();
   const navigate = useNavigate();
 
-  console.log("meta => " + JSON.stringify(meta));
-  // nextPageUrl
-
   return (
     <Container className="flex flex-col gap-6">
       <Text variant="ag-heading-lg">Solicitações</Text>

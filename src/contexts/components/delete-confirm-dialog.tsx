@@ -17,7 +17,13 @@ export default function DeleteConfirmDialog({
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-gray-100/80 data-[state=open]:animate-fadeIn" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-gray-500 p-10 gap-6">
+        <Dialog.Content
+          className="
+            fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+            bg-gray-500 rounded-2xl p-6 sm:p-10 gap-6
+            w-[90%] sm:w-lg max-w-lg
+          "
+        >
           <div className="flex justify-between items-center mb-4">
             <Dialog.Title className="text-gray-100 text-xl leading-5 font-bold">
               Excluir solicitação
@@ -29,7 +35,7 @@ export default function DeleteConfirmDialog({
             irreversível.
           </Dialog.Description>
 
-          <div className="flex justify-end align-middle items-center gap-8 mt-5">
+          <div className="flex justify-end items-center gap-8 mt-5">
             <Dialog.Close asChild>
               <Text variant="text-semi-bold" className="cursor-pointer">
                 Cancelar
