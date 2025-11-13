@@ -4,10 +4,12 @@ export const refundNewFormSchema = z.object({
   title: z.string().min(1, { message: "Campo obrigatório" }).max(255),
   category: z.string().min(1, { message: "Campo obrigatório" }).max(255),
   value: z
-    .union([z.string().min(1, { message: "Campo obrigatório" }), z.number()])
-    .transform((val) =>
-      typeof val === "string" ? Number(val.replace(",", ".")) * 100 : val
-    ),
+    .number({
+      required_error: "Campo obrigatório",
+      invalid_type_error: "Valor inválido",
+    })
+    .min(1, { message: "Campo obrigatório" })
+    .max(1_000_000_00, { message: "Valor muito alto" }),
   file: z
     .instanceof(FileList)
     .refine((file) => file.length > 0, { message: "Campo obrigatório" })

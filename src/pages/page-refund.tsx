@@ -11,14 +11,10 @@ import Icon from "../components/icon";
 import Button from "../components/button";
 import InputSingleFile from "../components/input-single-file";
 import { useForm } from "react-hook-form";
-import DeleteConfirmDialog from "../contexts/componets/delete-confirm-dialog";
+import DeleteConfirmDialog from "../contexts/components/delete-confirm-dialog";
 import useRefund from "../contexts/refund/hooks/use-refund";
 import useReceipt from "../contexts/receipts/hooks/use-receipt";
-import {
-  categories,
-  formatter,
-  getRefundCategoryData,
-} from "../helpers/refund-utils";
+import { categories, formatter } from "../helpers/refund-utils";
 import {
   Select,
   SelectContent,
@@ -28,6 +24,11 @@ import {
 import { SelectTrigger } from "@radix-ui/react-select";
 import { Controller } from "react-hook-form";
 import Skeleton from "../components/skeleton";
+import {
+  refundNewFormSchema,
+  RefundNewFormSchema,
+} from "../contexts/refund/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function PageRefund() {
   const { id } = useParams();
@@ -36,14 +37,8 @@ export default function PageRefund() {
   const { receipt } = useReceipt(refund?.receipt?.id);
   const [success, setSuccess] = useState(false);
 
-  // form
-  const form = useForm({
-    defaultValues: {
-      title: "",
-      category: "",
-      value: 0,
-      file: undefined,
-    },
+  const form = useForm<RefundNewFormSchema>({
+    resolver: zodResolver(refundNewFormSchema),
   });
 
   const fileSrc = receipt
@@ -51,7 +46,6 @@ export default function PageRefund() {
     : undefined;
 
   // select
-  // const { category } = getRefundCategoryData(refund?.category || "");
   const [openSelect, setOpenSelect] = useState(false);
   const [valueSelect, setValueSelect] = useState(refund?.category || "");
   const selectId = useId();
@@ -68,7 +62,7 @@ export default function PageRefund() {
 
         await createRefund({
           title: data.title,
-          category: valueSelect,
+          category: data.category,
           value: data.value,
           file: data.file,
         });
@@ -149,61 +143,89 @@ export default function PageRefund() {
             <InputText
               label="Nome da solicitação"
               {...form.register("title")}
+              error={form.formState.errors.title?.message}
               loading={isLoadingRefund}
             />
             <div className="flex justify-between align-middle w-[432px]">
-              <div>
-                <Text
-                  variant="text-label"
-                  className="text-accent-title group-focus-within:text-green-100 transition-colors"
-                >
-                  Categoria
-                </Text>
-
-                <Select
-                  onOpenChange={(isOpen) => setOpenSelect(isOpen)}
-                  value={valueSelect}
-                  onValueChange={setValueSelect}
-                >
-                  {!isLoadingRefund ? (
-                    <SelectTrigger
-                      id={selectId}
-                      className={`
-                    w-70 h-12 border border-solid rounded-lg pl-4 pr-3 flex items-center justify-between pt-1 text-gray-100
-                    transition-colors
-                    ${openSelect ? "border-green-100" : "border-gray-300"}
-                    focus:outline-none
-                  `}
+              <Controller
+                control={form.control}
+                name="category"
+                render={({ field }) => (
+                  <div className="flex flex-col gap-1">
+                    <Text
+                      variant="text-label"
+                      className={`text-accent-title transition-colors ${
+                        form.formState.errors.category
+                          ? "text-red-500"
+                          : "group-focus-within:text-green-100"
+                      }`}
                     >
-                      <SelectValue placeholder="Selecione" />
-                      {openSelect ? (
-                        <Icon
-                          svg={CaretUp}
-                          className="fill-green-100 size-8 -mr-2 pr-3"
-                        />
-                      ) : (
-                        <Icon
-                          svg={CaretDown}
-                          className="fill-gray-300 size-8 -mr-2 pr-3"
-                        />
-                      )}
-                    </SelectTrigger>
-                  ) : (
-                    <Skeleton className="bg-gray-300 w-70 h-12 rounded-lg pl-4 pr-3 flex items-center justify-between pt-1" />
-                  )}
+                      Categoria
+                    </Text>
 
-                  <SelectContent
-                    className="bg-white w-[var(--radix-select-trigger-width)] ![margin-left:0] border border-solid border-gray-300 rounded-md text-gray-100"
-                    align="start"
-                  >
-                    {categories.map((category) => (
-                      <SelectItem key={category.value} value={category.value}>
-                        {category.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+                    <Select
+                      onOpenChange={(isOpen) => setOpenSelect(isOpen)}
+                      value={field.value}
+                      onValueChange={field.onChange}
+                    >
+                      {!isLoadingRefund ? (
+                        <SelectTrigger
+                          id={selectId}
+                          className={`
+                            w-70 h-12 border border-solid rounded-lg pl-4 pr-3 flex items-center justify-between pt-1 text-gray-100
+                            transition-colors
+                            ${
+                              openSelect
+                                ? "border-green-100"
+                                : "border-gray-300"
+                            }
+                            focus:outline-none
+                          `}
+                        >
+                          <SelectValue placeholder="Selecione" />
+                          {openSelect ? (
+                            <Icon
+                              svg={CaretUp}
+                              className={`size-8 -mr-2 pr-3 ${
+                                form.formState.errors.category
+                                  ? "fill-red-500"
+                                  : "fill-green-100"
+                              }`}
+                            />
+                          ) : (
+                            <Icon
+                              svg={CaretDown}
+                              className="fill-gray-300 size-8 -mr-2 pr-3"
+                            />
+                          )}
+                        </SelectTrigger>
+                      ) : (
+                        <Skeleton className="bg-gray-300 w-70 h-12 rounded-lg pl-4 pr-3 flex items-center justify-between pt-1" />
+                      )}
+
+                      <SelectContent
+                        className="bg-white w-[var(--radix-select-trigger-width)] ![margin-left:0] border border-solid border-gray-300 rounded-md text-gray-100"
+                        align="start"
+                      >
+                        {categories.map((category) => (
+                          <SelectItem
+                            key={category.value}
+                            value={category.value}
+                          >
+                            {category.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    {form.formState.errors.category && (
+                      <Text variant="text-label" className="text-accent-red">
+                        {form.formState.errors.category.message}
+                      </Text>
+                    )}
+                  </div>
+                )}
+              />
               <Controller
                 control={form.control}
                 name="value"
@@ -221,6 +243,7 @@ export default function PageRefund() {
                       field.onChange(numericValue);
                     }}
                     className="w-34"
+                    error={form.formState.errors.value?.message}
                     loading={isLoadingRefund}
                   />
                 )}
@@ -257,7 +280,6 @@ export default function PageRefund() {
             )}
           </>
         )}
-
         {id !== undefined ? (
           <>
             {!isLoadingRefund ? (

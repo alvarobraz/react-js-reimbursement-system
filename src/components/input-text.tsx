@@ -79,7 +79,7 @@ export default function InputText({
       )}
 
       {error && (
-        <Text variant="sub-title" className="text-accent-red">
+        <Text variant="text-label" className="text-accent-red">
           {error}
         </Text>
       )}
