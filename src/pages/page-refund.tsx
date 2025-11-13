@@ -47,7 +47,6 @@ export default function PageRefund() {
 
   // select
   const [openSelect, setOpenSelect] = useState(false);
-  const [valueSelect, setValueSelect] = useState(refund?.category || "");
   const selectId = useId();
 
   // create
@@ -66,7 +65,6 @@ export default function PageRefund() {
           value: data.value,
           file: data.file,
         });
-        setValueSelect("");
         form.reset();
         setSuccess(true);
       } catch (error: any) {
@@ -81,7 +79,6 @@ export default function PageRefund() {
   const handleDelete = () => {
     setIsDeletingRefund(async () => {
       await deleteRefund(refund?.id || "");
-      setValueSelect("");
       form.reset();
     });
   };
@@ -101,12 +98,6 @@ export default function PageRefund() {
       });
     }
   }, [refund, form]);
-
-  useEffect(() => {
-    if (refund?.category) {
-      setValueSelect(refund?.category);
-    }
-  }, [refund]);
 
   return (
     <Container
