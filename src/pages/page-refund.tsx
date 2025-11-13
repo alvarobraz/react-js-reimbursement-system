@@ -14,7 +14,11 @@ import { useForm } from "react-hook-form";
 import DeleteConfirmDialog from "../contexts/componets/delete-confirm-dialog";
 import useRefund from "../contexts/refund/hooks/use-refund";
 import useReceipt from "../contexts/receipts/hooks/use-receipt";
-import { categories, getRefundCategoryData } from "../helpers/refund-utils";
+import {
+  categories,
+  formatter,
+  getRefundCategoryData,
+} from "../helpers/refund-utils";
 import {
   Select,
   SelectContent,
@@ -47,9 +51,9 @@ export default function PageRefund() {
     : undefined;
 
   // select
-  const { category } = getRefundCategoryData(refund?.category || "");
+  // const { category } = getRefundCategoryData(refund?.category || "");
   const [openSelect, setOpenSelect] = useState(false);
-  const [valueSelect, setValueSelect] = useState(category || "");
+  const [valueSelect, setValueSelect] = useState(refund?.category || "");
   const selectId = useId();
 
   // create
@@ -104,10 +108,11 @@ export default function PageRefund() {
     }
   }, [refund, form]);
 
-  const formatter = new Intl.NumberFormat("pt-BR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  useEffect(() => {
+    if (refund?.category) {
+      setValueSelect(refund?.category);
+    }
+  }, [refund]);
 
   return (
     <Container

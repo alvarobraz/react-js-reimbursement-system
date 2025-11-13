@@ -56,3 +56,8 @@ export const categories = [
   { value: "services", label: "Serviços" },
   { value: "other", label: "Outros" },
 ];
+
+export const formatter = new Intl.NumberFormat("pt-BR", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
