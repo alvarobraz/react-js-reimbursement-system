@@ -5,12 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build-server && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "build-server": "tsc --noEmit -p tsconfig.server.json && tsup",
-    "dev-server": "tsup --watch --onSuccess \"node server/dist/main.js\"",
-    "run-server": "node server/dist/main.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fastify/cors": "8.5.0",

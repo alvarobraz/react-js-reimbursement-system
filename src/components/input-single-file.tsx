@@ -114,7 +114,7 @@ export default function InputSingleFile({
                 />
                 <div className={inputSingleFileVariants({ size })}>
                   <Text
-                    variant="body-md-regular"
+                    variant="ag-body-md-regular"
                     className="text-placeholder text-center p-4"
                   >
                     Nome do arquivo.pdf
@@ -142,11 +142,7 @@ export default function InputSingleFile({
                 Tamanho do arquivo ultrapassa o máximo
               </Text>
             )}
-            {error && (
-              <Text variant="text-label" className="text-accent-red">
-                {error}
-              </Text>
-            )}
+            {error && <Text variant="text-error">{error}</Text>}
           </div>
         </>
       ) : (
@@ -154,7 +150,7 @@ export default function InputSingleFile({
           <div className="flex gap-3 items-center border border-solid border-border-primary mt-5 p-3 rounded">
             <div className="w-full flex justify-between">
               <div className="truncate max-w-80">
-                <Text variant="sub-title" className="text-placeholder">
+                <Text variant="text-category" className="text-placeholder">
                   {formFile.name}
                 </Text>
               </div>

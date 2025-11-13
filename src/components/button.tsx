@@ -36,6 +36,7 @@ export const buttonTextVariants = tv({
     size: {
       xs: "text-xs",
       sm: "text-sm",
+      md: "text-md",
     },
   },
   defaultVariants: {
@@ -73,7 +74,7 @@ export default function Button({
       {...props}
     >
       <Text
-        variant="body-md-regular"
+        variant="ag-body-md-regular"
         className={buttonTextVariants({ variant, size })}
       >
         {children}

@@ -40,7 +40,7 @@ export default function RefundList({ refunds, loading }: refundListProps) {
       )}
       {!loading && refunds.length === 0 && (
         <div className="flex justify-center items-center h-full">
-          <Text variant="heading-lg">Nenhuma foto encontrada</Text>
+          <Text variant="ag-heading-lg">Nenhuma foto encontrada</Text>
         </div>
       )}
     </>

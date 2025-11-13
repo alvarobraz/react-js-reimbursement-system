@@ -4,10 +4,6 @@ import { Link, useLocation, useNavigate } from "react-router";
 import cx from "classnames";
 import Button from "./button";
 import Text from "./text";
-// import PhotosSearch from "./photos-search";
-
-// import PhotoNewDialog from "../contexts/photos/components/photo-new-dialog";
-// import AlbumNewDialog from "../contexts/albums/components/album-new-dialog";
 
 interface MainHeaderProps extends React.ComponentProps<typeof Container> {}
 
@@ -21,7 +17,7 @@ export default function MainHeader({ className, ...props }: MainHeaderProps) {
   };
 
   return (
-    <div className="flex justify-between items-center w-[74.0625rem] gap-10 mx-auto px-0 mt-10">
+    <div className="flex justify-between items-center w-296.25 gap-10 mx-auto px-0 mt-10">
       <Link to="/">
         <Logo className="h-7" />
       </Link>

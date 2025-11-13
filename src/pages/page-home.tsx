@@ -18,7 +18,7 @@ export default function PageHome() {
 
   return (
     <Container className="flex flex-col gap-6">
-      <Text variant="heading-lg">Solicitações</Text>
+      <Text variant="ag-heading-lg">Solicitações</Text>
       <RefundSearch />
       <Divider />
       <RefundList refunds={refunds} loading={isLoadingRefunds} />
@@ -32,7 +32,7 @@ export default function PageHome() {
           }}
           disabled={meta?.previousPageUrl === null}
         />
-        <Text variant="body-md-regular" className="px-2">
+        <Text variant="ag-body-md-regular" className="px-2">
           {meta?.currentPage + "/" + meta?.lastPage}
         </Text>
         <ButtonIcon

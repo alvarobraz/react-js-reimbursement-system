@@ -78,11 +78,7 @@ export default function InputText({
         <Skeleton className="bg-gray-300 w-full h-12 p-4" />
       )}
 
-      {error && (
-        <Text variant="text-label" className="text-accent-red">
-          {error}
-        </Text>
-      )}
+      {error && <Text variant="text-error">{error}</Text>}
     </div>
   );
 }

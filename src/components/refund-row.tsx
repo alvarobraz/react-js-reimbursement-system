@@ -30,15 +30,15 @@ export default function RefundRow({ refund, loading }: RefundRowProps) {
                 <Icon svg={icon} className="fill-green-100 h-5 w-5" />
               </div>
               <div className="flex flex-col justify-center gap-1">
-                <Text variant="title-bold">{refund.title}</Text>
-                <Text variant="sub-title">{label}</Text>
+                <Text variant="text-title">{refund.title}</Text>
+                <Text variant="text-category">{label}</Text>
               </div>
             </div>
             <div className="flex justify-end items-center gap-2">
-              <Text variant="text-sm" className="text-gray-200">
+              <Text variant="ag-body-sm" className="text-gray-200">
                 R$
               </Text>
-              <Text variant="title-bold" className="text-gray-100">
+              <Text variant="text-title" className="text-gray-100">
                 {formatRefundValue(refund.value)}
               </Text>
             </div>
@@ -54,7 +54,7 @@ export default function RefundRow({ refund, loading }: RefundRowProps) {
               </div>
             </div>
             <div className="flex justify-end items-center gap-2">
-              <Text variant="text-sm" className="text-gray-200">
+              <Text variant="ag-body-sm" className="text-gray-200">
                 <Skeleton className="bg-gray-300 w-[34px] h-[34px]" />
               </Text>
               <Skeleton className="bg-gray-300 w-[34px] h-[34px]" />

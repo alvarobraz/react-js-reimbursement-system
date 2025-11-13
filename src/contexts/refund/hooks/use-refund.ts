@@ -17,7 +17,6 @@ export default function useRefund(id?: string) {
   const queryClient = useQueryClient();
 
   async function createRefund(payload: RefundNewFormSchema) {
-    console.log("payload => " + JSON.stringify(payload));
     // eslint-disable-next-line no-useless-catch
     try {
       if (!payload.file || payload.file.length === 0) {

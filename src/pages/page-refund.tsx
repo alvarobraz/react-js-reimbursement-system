@@ -128,17 +128,19 @@ export default function PageRefund() {
           <>
             <Text variant="text-success">Solicitação enviada!</Text>
             <CheckedSuccess />
-            <Text variant="sub-title">
+            <Text variant="text-category">
               Agora é apenas aguardar! Sua solicitação será analisada e, em
               breve, o setor financeiro irá entrar em contato com você.
             </Text>
           </>
         ) : (
           <>
-            <Text variant="heading-lg">Solicitação de reembolso </Text>
-            <Text variant="body-md-regular">
-              Dados da despesa para solicitar reembolso.
-            </Text>
+            <div className="flex flex-col gap-6 mt-2 mb-3">
+              <Text variant="ag-heading-lg">Solicitação de reembolso</Text>
+              <Text variant="ag-body-md-regular">
+                Dados da despesa para solicitar reembolso.
+              </Text>
+            </div>
 
             <InputText
               label="Nome da solicitação"
@@ -146,7 +148,7 @@ export default function PageRefund() {
               error={form.formState.errors.title?.message}
               loading={isLoadingRefund}
             />
-            <div className="flex justify-between align-middle w-[432px]">
+            <div className="flex justify-between align-middle w-[432px] mt-2">
               <Controller
                 control={form.control}
                 name="category"
@@ -219,7 +221,7 @@ export default function PageRefund() {
                     </Select>
 
                     {form.formState.errors.category && (
-                      <Text variant="text-label" className="text-accent-red">
+                      <Text variant="text-error">
                         {form.formState.errors.category.message}
                       </Text>
                     )}
@@ -251,7 +253,7 @@ export default function PageRefund() {
             </div>
             {id !== undefined ? (
               <>
-                <div className="flex justify-center align-middle items-center gap-2 mt-1">
+                <div className="flex justify-center align-middle items-center gap-2 mt-4 mb-1">
                   {!isLoadingRefund ? (
                     <a
                       href={`${import.meta.env.VITE_API_URL}${receipt?.url}`}

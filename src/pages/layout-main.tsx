@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import MainHeader from "../components/main-header";
 import MainContent from "../components/main-content";
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 
 export default function LayoutMain() {
   const { pathname } = useLocation();
